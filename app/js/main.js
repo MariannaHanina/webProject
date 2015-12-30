@@ -18,39 +18,18 @@ var Place = Backbone.Model.extend({
 var PlaceView = Backbone.View.extend({
     tagName: 'div',
     className: 'col-md-6 col-sm-6 col-xs-12 featurebox',
-    template: _.template( $('#temp-place').html() ),
+    template : '#temp-place',
 
     initialize: function () {
         console.log(this.model)
     },
 
     render: function () {
-        /*var img = $('<img/>', {
-                src: this.model.get('img'), 
-                class: "img-responsive"
-            }),
-            imgCont = $('<div/>', {
-                class: "col-md-5 place-image"
-            }).append(img),
+        var template = _.template( $(this.template).html() ),
+            li = this.$el.append(template( this.model.toJSON() ));
 
-            titleLink = $('<a/>', {
-                href: "/",
-                text: this.model.get('name')
-            }),
-            title = $('<h3/>').append(titleLink),
+        $('#features .container .row').append(li);
 
-            desc = $('<p/>', {
-                text: this.model.get('desc')
-            }),
-            cont = $('<div/>', {
-                class: "col-md-7"
-            }).append(title, desc);
-
-        this.$el.append(imgCont, cont);*/
-        /*var li = this.$el.append(this.template( this.model.toJSON() ));
-        $('#features .container .row').append(li);*/
-
-        console.log($('#temp-place').html());
     }
 });
 
@@ -59,7 +38,11 @@ var smokeRoom = new Place({
         desc: 'Приглашаем вас посетить lounge зону SmokeRoom - самое неформатное место в Сергиевом Посаде!',
         img: 'imgs/smokeroom.jpg'
     }),
-    smokeRoomView = new PlaceView({model: smokeRoom});
+    smokeRoomView = new PlaceView({model: smokeRoom}),
+        name: 'Shisha Deluxe',
+        desc: 'Сергиев Посад! Мы работали, мы старались, мы учились и это свершилось - уникальная кальянная от компании «SHISHA DELUXE»',
+        img: 'imgs/shishadelux.jpg'
+    ;
 
 
 /*var Place = function (config) {
