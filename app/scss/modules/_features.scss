@@ -1,0 +1,45 @@
+.features
+{
+    padding: 100px 0px 100px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+.feature-icons
+{
+    width: 12%;
+    float: left;
+}
+.featurebox
+{
+    margin-top: 60px;
+    min-height: 170px;
+}
+.feature-icons img
+{
+    width: 100%;
+}
+.fh-desc
+{
+    width: 80%;
+    float: right;
+}
+
+.fh-desc h3
+{
+    margin: 0px !important;
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #242424;
+}
+.fh-desc p {
+    color: #888;
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 16px;
+    margin-top: 5px;
+    width: 90%;
+}
+.place-image{
+    margin-top : 25px;
+}

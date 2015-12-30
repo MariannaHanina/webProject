@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp = require('gulp'),
+	concat = require('gulp-concat'),
 	//concatCss = require('gulp-concat-css'),
 	rename = require('gulp-rename'),
 	minifyCss = require('gulp-minify-css'),
@@ -22,7 +23,7 @@ gulp.task('build', function() {
 	return gulp.src('app/*.html')
 		.pipe(assets)
 		.pipe(gulpif('*.js', uglify()))
-		.pipe(gulpif('*.css', minifyCss))
+		.pipe(gulpif('*.css', minifyCss()))
 		.pipe(assets.restore())
 		.pipe(useref())
 		.pipe(gulp.dest('dist'));
@@ -31,7 +32,7 @@ gulp.task('build', function() {
 gulp.task('bower', function() {
 	gulp.src('app/index.html')
 		.pipe(wiredep({
-			directory : "app/bower"
+			directory : "app/bower/"
 		}))
 		.pipe(gulp.dest('app'));
 });
@@ -46,11 +47,19 @@ gulp.task('connect', function() {
 
 // css
 gulp.task('css', function() {
-	gulp.src('./app/scss/*.scss')
+	gulp.src('./app/scss/**/*.scss')
 		.pipe(sass())
 		.pipe(autoprefixer('last 15 versions'))
 		.pipe(rename('main.css'))
 		.pipe(gulp.dest('./app/css'))
+		.pipe(connect.reload());
+});
+
+// js
+gulp.task('js', function() {
+	gulp.src('./app/js/bootstrap-theme/*.js')
+		.pipe(concat('main.js'))
+		.pipe(gulp.dest('./app/js/bootstrap-theme/'))
 		.pipe(connect.reload());
 });
 
@@ -62,10 +71,11 @@ gulp.task('html', function() {
 
 // watch
 gulp.task('watch', function() {
-	gulp.watch('app/scss/*.scss', ['css']);
+	gulp.watch('app/scss/**/*.scss', ['css']);
+	gulp.watch('app/js/*.js', ['js']);
 	gulp.watch('app/index.html', ['html']);
 	gulp.watch('bower.json', ['bower']);
 });
 
 // default
-gulp.task('default', ['connect', 'html', 'css', 'watch']);
+gulp.task('default', ['connect', 'html', 'css', 'js', 'watch']);

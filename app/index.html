@@ -2,31 +2,146 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>MyPlace</title>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,200,100,300,500,600,800,900' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,700italic,900,400italic,300italic' rel='stylesheet' type='text/css'>
+
+	<!-- build:css css/main.css -->
+	<link rel="stylesheet" href="css/main.css">
+	<!-- endbuild -->
 
 	<!-- build:css css/vendor.css -->
 	<!-- bower:css -->
 	<!-- endbower -->
 	<!-- endbuild -->
-
-	<!-- build:css css/main.css -->
-	<link rel="stylesheet" href="css/main.css">
-	<!-- endbuild -->
 </head>
 <body>
-	<div class="page">
-		<h1>livereload</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis voluptates excepturi, eaque velit nulla exercitationem voluptatibus totam molestiae fugiat alias, consectetur doloremque temporibus culpa, odit est sint dolor nesciunt, aperiam?</p>
+	<div class="navbar menubar" id="menu">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
+					<span class="glyphicon glyphicon-align-justify"></span>
+				</button>
+				<a class="navbar-brand logo" href="#">MyPlace</a>
+			</div>
+			<div>
+				<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
+					<ul class="nav navbar-nav navbar-right navstyle">
+						<li><a href="#banner" class="page-scroll active">Милый дом</a></li>
+						<li><a href="#features" class="page-scroll">Места</a></li>
+						<li><a href="#gallery" class="page-scroll">Войти</a></li>
+						<li><a href="#gallery" class="page-scroll">Регистрация</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</div>
-
+	<div class="notes">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 col-sm-10 col-12">
+					<p>
+						У каждого в городе есть любимые места. И порой так необходимо знать, свободен ли твой любимый столик прямо сейчас, или же забронировать его на удобное для тебя время. Что может быть проще с нашим сервисом "MyPlace"? 
+					</p>
+					<p>
+						А может быть ты сам владелец кафе, и тебе нужна удобная система онлайн бронирования столов? Тогда тебе к нам. Создай свою схему зала, установи свои правила и управляй бронированием мест через нашу систему!
+					</p>
+				</div>
+				<div class="col-md-3 col-sm-2 col-xs-12 text-center">
+					<button>Посмотреть возможости</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="features" id="features">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="alldesc">
+						<div class="col-md-6 col-sm-6 col-xs-12 centertext">
+							<p class="all-td">Самые интересные места в</p>
+							<h2>Сергиевом Посаде</h2>
+						</div>
+						<!--div class="col-md-6 col-sm-6 col-xs-12">
+							<p class="desc">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam a suscipit nisl. Etiam a facilisis ante. Sed turpis felis, sagittis at risus ut, luctus feugiat ipsum. Lorem ipsum dolor sit amet.
+							</p>
+						</div-->
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+					<div class="col-md-5 place-image">
+						<img src="imgs/smokeroom.jpg" class="img-responsive"/>	
+					</div>
+					<div class="col-md-7">
+						<h3>SmokeRoom</h3>
+						<p>
+							Приглашаем вас посетить lounge зону SmokeRoom - самое неформатное место в Сергиевом Посаде!
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+					<div class="col-md-5 place-image">
+						<img src="imgs/shishadelux.jpg" class="img-responsive"/>	
+					</div>
+					<div class="col-md-7">
+						<h3>Shisha Deluxe</h3>
+						<p>
+							Сергиев Посад! Мы работали, мы старались, мы учились и это свершилось - уникальная кальянная от компании «SHISHA DELUXE» 
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+					<div class="col-md-5 place-image">
+						<img src="imgs/northernlights.jpg" class="img-responsive"/>	
+					</div>
+					<div class="col-md-7">
+						<h3>Кальянная СЕВЕРНОЕ СИЯНИЕ</h3>
+						<p>
+							Друзья, приглашаем вас в наше уникальное место! Для вас самые дымные кальяны, очень вкусный чай, игры и уютная атмосфера! 
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12 featurebox">
+					<div class="col-md-5 place-image">
+						<img src="imgs/bilibin.jpg" class="img-responsive"/>	
+					</div>
+					<div class="col-md-7">
+						<h3>Кальянный-Бар Билибин</h3>
+						<p>
+							Своим необычным названием бар обязан оригинальному стилю, в котором выполнен его интерьер.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- build:js scripts/vendor.js -->
 	<!-- bower:js -->
 	<script src="bower/jquery/dist/jquery.js"></script>
-	<script src="bower/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+	<script src="bower/underscore/underscore.js"></script>
+	<script src="bower/backbone/backbone.js"></script>
 	<!-- endbower -->
 	<!-- endbuild -->
 
 	<!-- build:js scripts/main.js -->
+	<script type="text/javascript" src="js/bootstrap-theme/main.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 	<!-- endbuild -->
+
+	<script type="text/template" id="temp-place">
+		<div class="col-md-5 place-image">
+        	<img src="<%= img %>" class="img-responsive"/>
+        </div>
+        <div class="col-md-7">
+        	<h3><%= name %></h3>
+        	<p><%= desc %></p>
+        </div>
+	</script>
 </body>
 </html>

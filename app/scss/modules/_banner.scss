@@ -1,0 +1,84 @@
+.banner
+{
+    background: linear-gradient(to left, #341F48 50%, #2b193c 50%);
+}
+
+.banner-text 
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+.arrow
+{
+    text-align: center;
+    font-size: 60px;
+    color: rgba(224, 224, 224, 0.75);
+    display: inline-block;
+    margin: 30px -2px 0px 0px;
+}
+.arrow:hover, .arrow:focus
+{
+    text-align: center;
+    font-size: 60px;
+    color: rgba(224, 224, 224, 0.95);
+    display: inline-block;
+    margin: 30px -2px 0px 0px;
+}
+#heads:before, #heads:after {
+            background: rgba(224, 224, 224, 0.75);
+            content: '';
+            left: 50%;
+            position: absolute;
+            width: 1px;
+            z-index: 0;
+        }
+        #heads::before {
+    height: calc(100%);
+    opacity: 0.15;
+    top: 0px;
+}
+.line:before
+{
+    background: rgba(224, 224, 224, 0.75);
+            content: '';
+            position: absolute;
+            width:100%;
+            z-index: 0;
+            padding-left:0px !important;
+}
+.line::before
+{
+    height: 1px;
+    opacity: 0.15;
+    top: 32px;
+    left: 0px;
+}
+.tablebox
+{
+    display: table;
+    width: 100%;
+}
+.hostyle
+{
+    font-family: 'Pacifico', cursive;
+    /*color: #c6027f;   */
+    color: #33A29D;
+    font-size: 60px;
+}
+.pstyle
+{
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    padding: 0px !important;
+}
+.banner-text h2
+{
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
