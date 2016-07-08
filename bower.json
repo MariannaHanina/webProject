@@ -5,6 +5,8 @@
     "jquery": "~2.1.4",
     "bootstrap-sass": "~3.3.6",
     "underscore": "~1.8.3",
-    "backbone": "~1.2.3"
+    "backbone": "~1.2.3",
+    "layoutmanager": "~1.0.0",
+    "backbone.localStorage": "backbone.localstorage#~1.1.16"
   }
 }

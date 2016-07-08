@@ -1,9 +1,7 @@
-<script>
-		$(window).load(function(){
-			$("#menu").sticky({ topSpacing: 0 });
-		});
-	</script>
-	<script>
+$(window).load(function(){
+	$("#menu").sticky({ topSpacing: 0 });
+});
+
 $(function(){
 	var windowH = $(window).height();
 	var bannerH = $('#banner').height();
@@ -26,118 +24,95 @@ $(function(){
 			$('#bannertext').css({'height': (newH - 68)+'px'});
 		}
 
-	})          
-});
+	});
 
+	$('#galleryimg').mixItUp();
 
-	
-	
-	
-	$(function(){
-  $('#galleryimg').mixItUp();
-});
-	/*$('.timer').each(count);*/
-	jQuery(function ($) {
-	  // custom formatting example
-	  $('.timer').data('countToOptions', {
+	// custom formatting example
+	$('.timer').data('countToOptions', {
 		formatter: function (value, options) {
 		  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
 		}
-	  });
- 
-	  // start all the timers
-	  $('#gallery').waypoint(function() {
-	$('.timer').each(count);
 	});
- 
-	  function count(options) {
+
+	// start all the timers
+	$('#gallery').waypoint(function() {
+		$('.timer').each(count);
+	});
+
+	function count(options) {
 		var $this = $(this);
 		options = $.extend({}, options || {}, $this.data('countToOptions') || {});
 		$this.countTo(options);
-	  }
-	});
-	
-	
-	 $('.quotes').quovolver({
-	  equalHeight   : true
-	});
-	
-	
-	</script>
-<script>
-
-	$(document).ready(function () {
-
-		$(document).on("scroll", onScroll);
-
- 
-
-		$('a[href^="#"]').on('click', function (e) {
-
-			e.preventDefault();
-
-			$(document).off("scroll");
-
- 
-
-			$('a').each(function () {
-
-				$(this).removeClass('active');
-
-			})
-
-			$(this).addClass('active');
-
- 
-
-			var target = this.hash;
-
-			$target = $(target);
-
-			$('html, body').stop().animate({
-
-				'scrollTop': $target.offset().top
-
-			}, 500, 'swing', function () {
-
-				window.location.hash = target;
-
-				$(document).on("scroll", onScroll);
-
-			});
-
-		});
-
-	});
-
- 
-
-	function onScroll(event){
-
-		var scrollPosition = $(document).scrollTop();
-
-		$('.nav li a').each(function () {
-
-			var currentLink = $(this);
-
-			var refElement = $(currentLink.attr("href"));
-
-			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
-
-				$('.nav li a').removeClass("active");
-
-				currentLink.addClass("active");
-
-			}
-
-			else{
-
-				currentLink.removeClass("active");
-
-			}
-
-		});
-
 	}
 
-	</script>
+	$(document).on("scroll", onScroll);
+
+	$('a[href^="#"]').on('click', function (e) {
+		e.preventDefault();
+		$(document).off("scroll");
+
+		$('a').each(function () {
+			$(this).removeClass('active');
+		})
+
+		$(this).addClass('active');
+
+		var target = this.hash;
+		$target = $(target);
+
+		$('html, body').stop().animate({
+			'scrollTop': $target.offset().top
+		}, 500, 'swing', function () {
+			window.location.hash = target;
+
+			$(document).on("scroll", onScroll);
+		});
+	});
+});
+
+	
+$('.quotes').quovolver({
+	equalHeight   : true
+});
+
+function onScroll(event){
+	var scrollPosition = $(document).scrollTop();
+
+	$('.nav li a').each(function () {
+		var currentLink = $(this);
+		var refElement = $(currentLink.attr("href"));
+
+		if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+			$('.nav li a').removeClass("active");
+			currentLink.addClass("active");
+		} else {
+			currentLink.removeClass("active");
+		}
+	});
+}
+
+_.mixin({templateFromUrl: function (url) {
+	console.log('templateFromUrl');
+    var templateHtml = "";
+    this.cache = this.cache || {};
+
+    if (this.cache[url]) {
+        templateHtml = this.cache[url];
+    } else {
+        $.ajax({
+            url: url,
+            method: "GET",
+            async: false,
+            dataType: 'html',
+            success: function(data) {
+                templateHtml = data;
+                console.log('templateHtml', templateHtml);
+            }
+        });
+
+        this.cache[url] = templateHtml;
+    }
+
+    return _.template(templateHtml, {places: '123'});
+}});
