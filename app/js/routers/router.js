@@ -1,68 +1,49 @@
-// Роутер
-var Router = Backbone.Router.extend({
-	routes: {
-		'': 'index',
-		'place/:id': 'place'
-	},
-	index: function () {
-		var placesView = new App.Views.Places({collection: new App.Collections.Places()});
-
-		var main = new Backbone.Layout({
-			template: 	"main-layout.html",
-			el: 		false,
-			views: 		{
-				".content": new MainContentView(),
-				".places": placesView
-			}
-		});
-
-		main.$el.appendTo('body');
-		main.render();
-	},
-	place: function (id) {
-		console.log('Ссылка для места ', id);
-	}
-});
-
 var indexRoute = function () {
-	console.log('indexRoute', indexRoute);
-	var main = new Backbone.Layout({
-		template: "#main-layout",
+	var placesView = new App.Views.Places({collection: new App.Collections.Places()});
 
-		views: {
-			".content": new MainContentView()
+	mainLayout = new Backbone.Layout({
+		template: 	"main-layout.html",
+		el: 		false,
+		views: 		{
+			".top-menu": new TopMenuView(),
+			".content": new MainContentView(),
+			".places": placesView
 		}
 	});
 
-	console.log('main layout', main);
+	$('body').empty();
+	mainLayout.$el.appendTo('body');
+	mainLayout.render();
+};
 
-	var places = [
-		{
-			id: 1,
-			name: 'SmokeRoom',
-			desc: 'Приглашаем вас посетить lounge зону SmokeRoom - самое неформатное место в Сергиевом Посаде!',
-			img: '/imgs/smokeroom.jpg'
-		},
-		{
-			id: 2,
-			name: 'Shisha Deluxe',
-			desc: 'Сергиев Посад! Мы работали, мы старались, мы учились и это свершилось - уникальная кальянная от компании «SHISHA DELUXE»',
-			img: '/imgs/shishadelux.jpg'
-		},
-		{
-			id: 3,
-			name: 'СЕВЕРНОЕ СИЯНИЕ',
-			desc: 'Друзья, приглашаем вас в наше уникальное место! Для вас самые дымные кальяны, очень вкусный чай, игры и уютная атмосфера!',
-			img: '/imgs/northernlights.jpg'
-		},
-		{
-			id: 4,
-			name: 'Кальянный-Бар Билибин',
-			desc: 'Своим необычным названием бар обязан оригинальному стилю, в котором выполнен его интерьер.',
-			img: '/imgs/bilibin.jpg'
-		}
-		],
-		placesCollection = new App.Collections.Places(places),
-		placesView = new App.Views.Places({collection: placesCollection})
-		;
+var placeRoute = function (id) {
+	if (!mainLayout)
+		indexRoute();
+
+	var placeView = new App.Views.Place({collection: new App.Collections.Places(), id: id});
+
+	mainLayout.setView('.content', placeView);
+	mainLayout.render();
+};
+
+// Роутер
+var mainLayout,
+	admin = false;
+
+var Router = Backbone.Router.extend({
+	routes: {
+		'': 'index',
+		'place/:id': 'place',
+
+		'admin': 'admin',
+		'admin/': 'admin',
+		'admin/:action/:type/:id': 'admin',
+		'category_17': 'other'
+	},
+	index: indexRoute,
+	place: placeRoute,
+	admin: adminRoute,
+	other: function () {
+		console.log('other');
 	}
+});

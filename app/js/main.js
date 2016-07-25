@@ -1,12 +1,16 @@
 (function() {
 	window.App = {
 		Models: {
-			Place: Place
+			Place: Place,
+			Category: Category
 		},
 		Collections: {
-			Places: PlacesCollection
+			Places: PlacesCollection,
+			Categories: CategoriesCollection,
+			FullPlacesList: FullPlacesListCollection
 		},
 		Views: {
+			Place: PlaceView,
 			Places: PlacesView,
 			MainContent: MainContentView
 		},

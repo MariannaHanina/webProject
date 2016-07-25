@@ -1,0 +1,31 @@
+<div class="panel-group">
+	<% _.each( models, function( category ){ %>
+	<% var places = category.get('places'); %>
+	<% var numberOfPlace = _.size(places); %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title" data-toggle="collapse" data-target="#<%= category.get('id') %>" aria-expanded="false" aria-controls="collapseExample">
+				<a href="#admin/edit/category/<%=category.get('id')%>">
+					<%= category.get('name') %>
+				</a>
+				<span class="badge badge-info"><%= numberOfPlace %></span>
+			</h3>
+		</div>
+		<div id="<%= category.get('id') %>" class="panel-collapse">
+			<ul class="list-group">
+			<% if (numberOfPlace > 0) {%>
+				<% _.each( places, function( place ){ %>
+				<li class="list-group-item">
+					<a href="#admin/edit/place/<%=place.get('id')%>"><%= place.get('name')%></a>
+				</li>
+				<% }); %>
+			<% } else { %>
+				<li class="list-group-item">
+					Нет мест в данной категории.
+				</li>
+			<% } %>
+			</ul>
+		</div>
+	</div>
+	<% }); %>
+</div>

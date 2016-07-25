@@ -1,4 +1,4 @@
-// Вид списка мест
+// Вид превью мест
 var PlacesView = BaseView.extend({
 	className: 'row',
 	template : 'places-template.html',

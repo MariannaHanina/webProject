@@ -1,9 +1,15 @@
 // Модель места
 var Place = Backbone.Model.extend({
 	defaults: {
-		desc: 'Нет описания',
-		img: 'imgs/default.jpg',
-		price: 1000
+		id: '',
+		name: '',
+		category: 'noCategory',
+		desc: '',
+		img: 'imgs/noimage.jpg'
+	},
+
+	initialize: function () {
+		this.defaults.id = _.uniqueId('place_');
 	},
 
 	validate: function (attrs, options) {
